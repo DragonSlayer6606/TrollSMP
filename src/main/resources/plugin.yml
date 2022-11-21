@@ -1,0 +1,15 @@
+name: Com.gmail.aryanj1010
+version: '${project.version}'
+main: trollonly.com.gmail.aryanj1010.Com.gmail.aryanj1010
+api-version: 1.19
+commands:
+  withdraw:
+    description: Withdraws heart from health bar
+    usage: "Usage: /withdraw"
+  giveheart:
+    description: Gives a heart (only works on asunqe)
+    usage: "Usage: /giveheart PlayerName"
+
+  resethealth:
+    description: Resets Health of everyone (only asunqe can use)
+    usage: "Usage /resethealth"
