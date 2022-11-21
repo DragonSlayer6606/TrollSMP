@@ -30,9 +30,11 @@
 
         ItemStack revive = new ItemStack(Material.PLAYER_HEAD);
         ItemMeta rMeta = revive.getItemMeta();
+        ArrayList<String> rLore = new ArrayList<>();
 
         ItemStack Srevive = new ItemStack(Material.PLAYER_HEAD);
         ItemMeta srMeta = Srevive.getItemMeta();
+        ArrayList<String> srLore = new ArrayList<>();
         @Override
         public void onEnable() {
 
@@ -48,7 +50,7 @@
 
 
             //Makes Revive Meta
-            ArrayList<String> rLore = new ArrayList<>();
+
             rLore.add("Right Click to");
             rLore.add("Revive a player");
             rMeta.setDisplayName("Reviver");
@@ -56,7 +58,7 @@
             revive.setItemMeta(rMeta);
 
             //Makes SuperRevive Meta
-            ArrayList<String> srLore = new ArrayList<>();
+
             srLore.add("Right Click to");
             srLore.add("Revive a player");
             srMeta.setDisplayName("Super Reviver");
@@ -130,7 +132,7 @@
                 }
             }
 
-            if (a.equals(Action.RIGHT_CLICK_AIR) && i.equals(revive) && i.getItemMeta().hasDisplayName()) {
+            if (a.equals(Action.RIGHT_CLICK_AIR) && i.getItemMeta().getLore().equals(rLore) && i.getItemMeta().hasLore()) {
                 Bukkit.dispatchCommand(p.getServer().getConsoleSender(), "pardon " + i.getItemMeta().getDisplayName());
                 Player revivedPlayer = Bukkit.getPlayer(i.getItemMeta().getDisplayName());
                 revivedPlayer.setMaxHealth(2);
@@ -140,7 +142,9 @@
                 e.setCancelled(true);
             }
 
-            if (a.equals(Action.RIGHT_CLICK_AIR) && i.equals(Srevive) && i.getItemMeta().hasDisplayName()) {
+            if (a.equals(Action.RIGHT_CLICK_AIR) && i.getItemMeta().getLore().equals(srLore) && i.getItemMeta().hasLore()) {
+
+
                 Bukkit.dispatchCommand(p.getServer().getConsoleSender(), "pardon " + i.getItemMeta().getDisplayName());
                 Player revivedPlayer = Bukkit.getPlayer(i.getItemMeta().getDisplayName());
                 revivedPlayer.setMaxHealth(8);
